@@ -1,0 +1,62 @@
+@import "../less/texteditor-styles.less";
+
+html,
+body {
+  cursor: text;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  .texteditorFont();
+  font-size: 1.5em;
+  line-height: 1.6;
+  color: #222;
+  height: 100%;
+
+  .textEditorStyles();
+
+  .mceCover {
+    cursor: default;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+
+    &[data-mce-selected] {
+      &::before {
+        background: rgba(0, 85, 255, 0.6);
+        outline: 1px solid black;
+      }
+    }
+
+    &::before {
+      cursor: default;
+      content: "← →";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 7rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .mce-pagebreak {
+    height: 0 !important;
+    border: none;
+    border-top: 1px dashed #ff6600;
+    margin: 0;
+  }
+
+  table {
+    width: 99% !important;
+  }
+}
+
