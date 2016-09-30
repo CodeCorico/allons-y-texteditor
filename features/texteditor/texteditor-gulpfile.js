@@ -4,7 +4,9 @@ module.exports = function($allonsy, $gulp) {
 
   var sourcemaps = require('gulp-sourcemaps'),
       uglify = require('gulp-uglify'),
-      rename = require('gulp-rename');
+      rename = require('gulp-rename'),
+      less = require('gulp-less'),
+      minifyCSS = require('gulp-minify-css');
 
   function _renameDirname(p, folder) {
     p.dirname = p.dirname.split(folder)[1];
@@ -64,6 +66,22 @@ module.exports = function($allonsy, $gulp) {
                       .on('end', function() {
 
                         $gulp
+                          .src($allonsy.globPatterns('views/tinymce-plugins/**/css/*.less'))
+                          .pipe(rename(function(p) {
+                            return _renameDirname(p, 'tinymce-plugins');
+                          }))
+                          .pipe(less())
+                          .pipe(rename({
+                            extname: '.css'
+                          }))
+                          .pipe($gulp.dist('vendor/tinymce/plugins'))
+                          .pipe(minifyCSS({
+                            keepSpecialComments: 0
+                          }))
+                          .pipe(rename({
+                            extname: '.min.css'
+                          }))
+                          .pipe($gulp.dist('vendor/tinymce/plugins'))
                           .on('end', done);
 
                       });
