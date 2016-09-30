@@ -12,15 +12,15 @@
         ];
 
     require('/public/vendor/tinymce/tinymce.js').then(function() {
-      return require('/public/vendor/dropzone.js');
-    }).then(function() {
-      return require('/public/vendor/dropzone.css');
+      return require('/public/dropzone/dropzone.css');
     }).then(function() {
       return require('/public/vendor/prism.css');
     }).then(function() {
       return require('/public/texteditor/prism-plugins/prism-line-numbers.css');
     }).then(function() {
       return require('/public/vendor/tinymce/skins/texteditor/skin.min.css');
+    }).then(function() {
+      return require('/public/vendor/dropzone.js');
     })
     .then(function() {
       // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
