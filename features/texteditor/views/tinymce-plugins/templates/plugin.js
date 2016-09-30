@@ -47,10 +47,6 @@
       }
 
       editor.selection.select($(template).find('.text-templates-content')[0]);
-
-      editor.fire('updateWinChartCount', {
-        feature: 'wikiAddTemplates'
-      });
     }
 
     editor.addButton('templates', {

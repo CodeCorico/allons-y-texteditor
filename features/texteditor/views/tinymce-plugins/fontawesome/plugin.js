@@ -149,10 +149,6 @@
         editor.selection.select(span);
 
         win.close();
-
-        editor.fire('updateWinChartCount', {
-          feature: 'wikiAddIcon'
-        });
       }
 
       var iconInserts = document.querySelectorAll('.js-mce-fontawesome-insert');

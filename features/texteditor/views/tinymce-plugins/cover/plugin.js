@@ -110,10 +110,6 @@
           editor.nodeChanged();
           editor.selection.select(p);
 
-          editor.fire('updateWinChartCount', {
-            feature: 'wikiAddFullWidthImage'
-          });
-
           win.close();
         }
       });

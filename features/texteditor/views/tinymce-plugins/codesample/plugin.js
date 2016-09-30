@@ -1267,10 +1267,6 @@ define("tinymce/codesampleplugin/Dialog", [
 				],
 				onSubmit: function(e) {
 					insertCodeSample(editor, e.data.language, e.data.code);
-
-          editor.fire('updateWinChartCount', {
-            feature: 'wikiAddCode'
-          });
 				}
 			});
 		}
