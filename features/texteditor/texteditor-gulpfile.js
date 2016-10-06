@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($allonsy, $gulp) {
+module.exports = function($allonsy, $gulp, $lessPaths, $lessPlugins) {
 
   var sourcemaps = require('gulp-sourcemaps'),
       uglify = require('gulp-uglify'),
@@ -70,7 +70,10 @@ module.exports = function($allonsy, $gulp) {
                           .pipe(rename(function(p) {
                             return _renameDirname(p, 'tinymce-plugins');
                           }))
-                          .pipe(less())
+                          .pipe(less({
+                            paths: $lessPaths,
+                            plugins: ($lessPlugins || []).concat([require('less-plugin-glob')])
+                          }))
                           .pipe(rename({
                             extname: '.css'
                           }))
