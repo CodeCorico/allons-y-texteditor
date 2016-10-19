@@ -20,7 +20,7 @@ module.exports = function($allonsy, $gulp, $lessPaths, $lessPlugins) {
   $gulp.task('texteditor', function(done) {
 
     $gulp
-      .src('node_modules/tinymce/**/*')
+      .src('./node_modules/tinymce/**/*')
       .pipe($gulp.dist('vendor/tinymce'))
       .on('end', function() {
 
@@ -41,7 +41,7 @@ module.exports = function($allonsy, $gulp, $lessPaths, $lessPlugins) {
               .on('end', function() {
 
                 $gulp
-                  .src('node_modules/prismjs/themes/prism.css')
+                  .src('./node_modules/prismjs/themes/prism.css')
                   .pipe($gulp.dist('vendor'))
                   .on('end', function() {
 
