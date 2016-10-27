@@ -51,7 +51,9 @@ module.exports = function($allonsy, $gulp, $lessPaths, $lessPlugins) {
                         return _renameDirname(p, 'tinymce-plugins');
                       }))
                       .pipe(sourcemaps.init())
-                      .pipe(uglify().on('error', function(err) {
+                      .pipe(uglify({
+                        mangle: false
+                      }).on('error', function(err) {
                         $allonsy.logWarning('allons-y-texteditor', 'texteditor:uglify-error', {
                           error: err
                         });
