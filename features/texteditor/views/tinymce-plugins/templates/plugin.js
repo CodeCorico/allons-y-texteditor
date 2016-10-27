@@ -51,7 +51,7 @@
 
     editor.addButton('templates', {
       type: 'menubutton',
-      text: _('Templates'),
+      tooltip: _('Templates'),
       icon: 'none fa fa-bullhorn',
       menu: [{
         text: _('Information'),
