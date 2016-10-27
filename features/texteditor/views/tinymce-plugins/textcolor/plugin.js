@@ -167,10 +167,31 @@ tinymce.PluginManager.add('textcolor', function(editor) {
 		return html;
 	}
 
+	function getRow(format) {
+		if (format == 'hilitecolor') {
+			var row = tinymce.dom.DomQuery(editor.selection.getNode()).parents('.row');
+
+			if (row.length) {
+				return row[0];
+			}
+		}
+
+		return false;
+	}
+
 	function applyFormat(format, value) {
 		editor.undoManager.transact(function() {
 			editor.focus();
-			editor.formatter.apply(format, {value: value});
+
+			var row = getRow(format);
+
+			if (row) {
+				editor.dom.setAttrib(row, 'style', 'background-color: ' + value + ';');
+			}
+			else {
+				editor.formatter.apply(format, {value: value});
+			}
+
 			editor.nodeChanged();
 		});
 	}
@@ -178,7 +199,16 @@ tinymce.PluginManager.add('textcolor', function(editor) {
 	function removeFormat(format) {
 		editor.undoManager.transact(function() {
 			editor.focus();
-			editor.formatter.remove(format, {value: null}, null, true);
+
+			var row = getRow(format);
+
+			if (row) {
+				editor.dom.setAttrib(row, 'style', '');
+			}
+			else {
+				editor.formatter.remove(format, {value: null}, null, true);
+			}
+
 			editor.nodeChanged();
 		});
 	}

@@ -12,6 +12,12 @@
 
 .textEditorStyles() {
 
+  .clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+  }
+
   a {
     color: @accentColor;
     text-decoration: none;
@@ -121,6 +127,12 @@
 
     &:last-child {
       padding-right: 0;
+    }
+  }
+
+  th, td, .columns {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
     }
   }
 
@@ -331,5 +343,14 @@
     .text-templates-icon {
       color: #FA9792;
     }
+  }
+
+  .row {
+    margin-top: 0.5rem;
+  }
+
+  .columns {
+    border: 1px solid transparent;
+    min-height: 2.5rem;
   }
 }

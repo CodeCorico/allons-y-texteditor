@@ -47,7 +47,7 @@
           _focused = false,
           _dataPlugins = $data && $data.plugins || '',
           _toolbar = [
-            'undo redo | image cover media table templates | pagebreak hr charmap blockquote codesample fontawesome',
+            'undo redo | image cover media table sections templates | pagebreak hr charmap blockquote codesample fontawesome',
             [
               'bold italic underline strikethrough | forecolor backcolor',
               ' | alignleft aligncenter alignright | bullist numlist outdent indent',
@@ -123,7 +123,7 @@
           '10rem': '-1.3rem'
         },
         plugins: [
-          'autoresize anchor hr paste link lists table image codesample prismlinenumbers templates',
+          'autoresize anchor hr paste link lists table image codesample prismlinenumbers sections templates',
           'charmap textcolor colorpicker media fontawesome noneditable cover pagebreak',
           _dataPlugins
         ].join(' '),
