@@ -124,7 +124,7 @@
         },
         plugins: [
           'autoresize anchor hr paste link lists table image codesample prismlinenumbers templates',
-          'charmap textcolor media fontawesome noneditable cover pagebreak',
+          'charmap textcolor colorpicker media fontawesome noneditable cover pagebreak',
           _dataPlugins
         ].join(' '),
         extended_valid_elements: [
