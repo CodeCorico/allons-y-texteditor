@@ -1,3 +1,9 @@
+<a name="1.0.2"></a>
+# [1.0.2](https://github.com/CodeCorico/allons-y-texteditor/compare/1.0.1...1.0.2) (2016-10-28)
+
+### Bug Fixes
+* **texteditor tinymce sections plugin:** make the sections container uneditable [#d8fbaeb](https://github.com/CodeCorico/allons-y-texteditor/commit/d8fbaeb)
+
 <a name="1.0.1"></a>
 # [1.0.1](https://github.com/CodeCorico/allons-y-texteditor/compare/1.0.0...1.0.1) (2016-10-27)
 
@@ -13,5 +19,4 @@
 # [1.0.0 Allonzo](https://github.com/CodeCorico/allons-y-texteditor/releases/tag/1.0.0) (2016-10-20)
 
 ### Features
-
 * **texteditor:** First version
