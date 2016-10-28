@@ -67,6 +67,12 @@ body {
   table {
     width: 99% !important;
   }
+
+  *[contentEditable=false] *[contentEditable=true]:focus,
+  *[contentEditable=false] *[contentEditable=true]:hover,
+  *[contentEditable=false][data-mce-selected] {
+    outline: none !important;
+  }
 }
 
 @media (min-width: 450px) {
@@ -87,11 +93,9 @@ body {
   }
   .seven.columns, .eight.columns, .nine.columns, .ten.columns, .eleven.columns {
     width: 100%;
-    margin-left: 0;
   }
   .twelve.columns {
     width: 100%;
-    margin-left: 0;
   }
 }
 

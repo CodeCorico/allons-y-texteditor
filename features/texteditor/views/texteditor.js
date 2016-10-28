@@ -33,9 +33,16 @@
             }, $data || {}),
 
             content: function() {
-              return this.editor ? $.trim(this.editor.getContent({
-                format: 'raw'
-              })) : '';
+              if (!this.editor) {
+                return '';
+              }
+
+              return this.editor
+                .getContent({
+                  format: 'raw'
+                })
+                .replace(/contenteditable="true"/g, '')
+                .trim();
             }
           }),
           _$el = {

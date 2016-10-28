@@ -15,10 +15,14 @@
     function _insertSection(layout) {
       // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 
-      var html = ['<div class="row" id="__mcenew">'];
+      var html = ['<div d="__mcenew" class="row mceNonEditable">'];
 
-      layout.split('-').forEach(function(number, i) {
-        html.push('<div class="' + _numbers[parseInt(number, 10)] + ' columns' + '">column ' + (i + 1) + '</div>');
+      layout.split('-').forEach(function(number) {
+        html.push([
+          '<div class="' + _numbers[parseInt(number, 10)] + ' columns' + ' mceEditable">',
+            '<p>&nbsp;</p>',
+          '</div>'
+        ].join(''));
       });
 
       html.push('<div class="clear"></div>');
@@ -33,8 +37,26 @@
         editor.dom.insertAfter(section, section.parentNode);
       }
 
-      editor.selection.select($(section).find('div')[0]);
+      editor.selection.select($(section).find('> div > p')[0]);
     }
+
+    editor.addButton('sectiondelete', {
+      icon: 'tabledelete',
+      tooltip: _('Delete the section'),
+      onclick: function() {
+        var $selection = editor.selection.getNode();
+
+        if (!$selection) {
+          return;
+        }
+
+        $selection = tinymce.dom.DomQuery($selection);
+
+        console.log($selection);
+
+        $selection.parents('.row').remove();
+      }
+    });
 
     editor.addContextToolbar(
       function(element) {
@@ -44,7 +66,7 @@
 
         return true;
       },
-      'backcolor'
+      'backcolor sectiondelete'
     );
 
     editor.addButton('sections', {
