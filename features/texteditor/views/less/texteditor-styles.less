@@ -130,7 +130,7 @@
     }
   }
 
-  th, td, .columns {
+  th, td {
     h1, h2, h3, h4, h5, h6, p {
       &:first-child {
         margin-top: 0;
@@ -353,10 +353,24 @@
 
   .row {
     margin-top: 0.5rem;
+
+    &.row-bg {
+      padding: 1rem;
+    }
   }
 
   .columns {
     border: 1px solid transparent;
     min-height: 2.5rem;
+
+    h1, h2, h3, h4, h5, h6, p {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

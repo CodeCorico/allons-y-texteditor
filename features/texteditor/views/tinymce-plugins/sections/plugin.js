@@ -15,7 +15,7 @@
     function _insertSection(layout) {
       // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 
-      var html = ['<div d="__mcenew" class="row mceNonEditable">'];
+      var html = ['<div id="__mcenew" class="row mceNonEditable">'];
 
       layout.split('-').forEach(function(number) {
         html.push([

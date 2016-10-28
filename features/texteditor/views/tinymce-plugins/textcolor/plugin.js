@@ -187,6 +187,11 @@ tinymce.PluginManager.add('textcolor', function(editor) {
 
 			if (row) {
 				editor.dom.setAttrib(row, 'style', 'background-color: ' + value + ';');
+				var classes = (editor.dom.getAttrib(row, 'class') || '').split(' ');
+				if (classes.indexOf('row-bg') < 0) {
+					classes.push('row-bg');
+					editor.dom.setAttrib(row, 'class', classes.join(' '));
+				}
 			}
 			else {
 				editor.formatter.apply(format, {value: value});
@@ -204,6 +209,11 @@ tinymce.PluginManager.add('textcolor', function(editor) {
 
 			if (row) {
 				editor.dom.setAttrib(row, 'style', '');
+				var classes = (editor.dom.getAttrib(row, 'class') || '').split(' ');
+				if (classes.indexOf('row-bg') > -1) {
+					classes.splice(classes.indexOf('row-bg'), 1);
+					editor.dom.setAttrib(row, 'class', classes.join(' '));
+				}
 			}
 			else {
 				editor.formatter.remove(format, {value: null}, null, true);
