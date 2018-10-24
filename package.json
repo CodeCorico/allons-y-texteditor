@@ -27,6 +27,12 @@
     "gulp-uglify": "^2.0.0",
     "less-plugin-glob": "^1.1.1",
     "prismjs": "^1.5.1",
-    "tinymce": "^4.4.3"
-  }
+    "tinymce": "^4.4.3",
+    "snyk": "^1.104.2"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
